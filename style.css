@@ -1,0 +1,79 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ .logoimg{
+
+ 	animation: spin 10s linear infinite;
+ }
+@keyframes spin{
+	0%{
+		transform:rotate(0deg);
+
+	}
+	100%{
+		transform:rotate(360deg); 
+	}
+}
+
+ 	 
+ 	 
+.carousel-inner img {
+      width: 100%;
+      height:500px;
+  }
+
+.part{
+	margin-bottom: 10px;
+	
+}
+ 
+.about-part{
+        margin-bottom: 10px;
+        background-color:#E6E6FA; 	
+		border-radius: 20px;
+}
+.rounded{
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	transition: 0.3s;
+
+}
+.rounded:hover{
+	box-shadow: 0 12px 26px 0 rgba(0,0,0,0.2);
+}
+.card{
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	transition: 0.3s;
+
+}
+.card:hover{
+	
+	box-shadow: 0 12px 26px 0 rgba(0,0,0,0.2);
+}
+
+.carl-part{
+	position: absolute;
+
+   
+}
+.number .rect{
+	position:relative;
+	bottom: 80px;
+	z-index:2;
+	background:#fff;
+	width: 12rem;
+	height:8em;
+	padding-top: 3.6vmin;
+	margin:13px ;
+	border-radius: .6em;
+	box-shadow: 1px 2px 6px 0px  rgba(0,0,0,0.2);
+
+}
+.number .rect:hover{
+	
+	box-shadow: 0 12px 26px 0px rgba(0,0,0,0.5);
+}
+
+
