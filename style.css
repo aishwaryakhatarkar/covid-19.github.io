@@ -17,8 +17,7 @@
 		transform:rotate(360deg); 
 	}
 }
-
- 	 
+	 
  	 
 .carousel-inner img {
       width: 100%;
@@ -77,3 +76,197 @@
 }
 
 
+
+:root{
+	--primary:#007bff;
+	--lav:#E6E6FA;
+	--ease:cubic-bezier(.22,.8,.3,1);
+}
+html{scroll-behavior:smooth;}
+body{padding-top:76px;overflow-x:hidden;background:#fff;}
+section{scroll-margin-top:84px;}
+img{max-width:100%;}
+
+/* scroll progress bar */
+.scroll-progress{
+	position:fixed;
+	top:0;
+	left:0;
+	height:3px;
+	width:100%;
+	z-index:2000;
+	background:linear-gradient(90deg,#007bff,#6f42c1,#17a2b8);
+	transform:scaleX(0);
+	transform-origin:0 50%;
+}
+
+/* navbar */
+.nav_style{transition:box-shadow .3s,padding .3s,background .3s;}
+.nav_style.scrolled{box-shadow:0 4px 18px rgba(0,0,0,.12);padding:.2rem .5rem !important;background:rgba(248,249,250,.95) !important;backdrop-filter:blur(8px);}
+.navbar-brand{font-weight:700;letter-spacing:.5px;}
+.navbar-brand .logoimg{width:40px;height:auto;margin:0 1px;}
+.nav-link{position:relative;transition:color .3s;}
+.nav-link::after{
+	content:"";position:absolute;left:.5rem;right:.5rem;bottom:2px;height:2px;
+	background:var(--primary);transform:scaleX(0);transition:transform .3s var(--ease);
+}
+.nav-link:hover::after,.nav-link.active::after{transform:scaleX(1);}
+.nav-link.active{color:var(--primary) !important;}
+.navbar-collapse{transition:all .3s;}
+@media (max-width:991.98px){
+	.navbar-collapse{padding:.5rem 0;max-height:75vh;overflow-y:auto;}
+	.nav-link::after{display:none;}
+}
+
+/* hero carousel */
+.hero-wrap{padding-left:0;padding-right:0;margin-bottom:0;}
+.carousel-inner img{height:clamp(220px,52vw,520px);object-fit:cover;}
+.carousel-item::after{
+	content:"";
+	position:absolute;
+	inset:0;
+	background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55));}
+.carousel-caption{z-index:2;bottom:10%;}
+.carousel-caption h2{
+	font-size:4rem;
+	font-weight:700;
+	text-shadow:0 2px 12px rgba(0,0,0,.6);
+	opacity:0;transform:translateY(30px);
+}
+.carousel-item.active .carousel-caption h2{animation:capIn .9s var(--ease) .25s forwards;}
+@keyframes capIn{to{opacity:1;transform:none;}}
+.carousel-item.active img{animation:kenburns 8s ease-out forwards;}
+@keyframes kenburns{from{transform:scale(1.08);}to{transform:scale(1);}}
+.carousel-inner{overflow:hidden;}
+
+/* stat cards */
+.number{margin-top:-60px;position:relative;z-index:3;}
+.number .rect{
+	bottom:0;width:15rem;height:auto;min-height:7.5rem;padding:1.4rem .5rem;margin:10px;
+	transition:transform .35s var(--ease),box-shadow .35s;
+	border-top:4px solid var(--primary);
+}
+.number .rect:hover{transform:translateY(-8px);}
+.number .rect:nth-child(2){border-top-color:#dc3545;}
+.number .rect:nth-child(3){border-top-color:#28a745;}
+.number .rect:nth-child(4){border-top-color:#ffc107;}
+.number h4{font-weight:700;margin:0;}
+@media (max-width:575.98px){
+	.number{margin-top:-30px;}
+	.number .rect{width:calc(50% - 16px);margin:8px;min-height:6.5rem;}
+	.number h4{font-size:1.15rem;}
+	.number h6{font-size:.8rem;}
+}
+.counter {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    transition: color 0.3s ease;
+}
+
+#covidStatus {
+    font-size: 13px;
+    color: #777;
+}
+
+/* sections */
+
+h2,h3{
+	font-weight:700;
+}
+.about-part{
+	box-shadow:0 8px 30px rgba(111,66,193,.08);
+}
+.about-img{
+	border-radius:18px;
+	justify-content: center;
+	box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+@media (max-width:767px){
+	.about-part{
+		border-radius:16px;
+		/* margin:20px; */
+		width:auto;
+		max-width:none;
+	}
+}
+
+/* cards */
+.symptom-card,.treat-card{
+	border:0;border-radius:16px;overflow:hidden;
+	transition:transform .35s var(--ease),box-shadow .35s;
+}
+.symptom-card:hover,.treat-card:hover{transform:translateY(-8px);}
+.sym-icon{width:64px !important;height:64px;object-fit:contain;margin-top:14px !important;transition:transform .5s var(--ease);}
+.symptom-card:hover .sym-icon{transform:scale(1.15) rotate(-6deg);}
+.treat-icon{width:64px !important;height:64px;object-fit:contain;padding:8px;transition:transform .5s var(--ease);}
+.treat-card:hover .treat-icon{transform:rotate(360deg);}
+
+/* handwash steps */
+.wash-img{width:100%;max-width:80px;aspect-ratio:1/1;object-fit:cover;transition:transform .35s var(--ease),box-shadow .35s;}
+.wash-img:hover{transform:scale(1.18) rotate(4deg);}
+@media (max-width:575.98px){.wash-img{max-width:72px;}}
+
+/* bttons */
+.btn{transition:transform .25s var(--ease),box-shadow .25s;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,123,255,.35);}
+.learn-btn{border-radius:50px;padding:.7rem 2rem;}
+
+/* accordion */
+#accordion .card{border-radius:10px;margin-bottom:8px;border:0;}
+#accordion .card-header{background:#fff;border-bottom:0;border-radius:10px;}
+#accordion .card-link{font-weight:600;text-decoration:none;display:block;}
+#accordion .card-body{text-align:left;font-size:.92rem;}
+
+/* footer */
+.footer-part{background:#f8f9fa;margin-top:1.5rem;}
+.footer-list{list-style:none;padding-left:0;}
+.footer-list li{margin-bottom:6px;transition:transform .25s,color .25s;}
+.footer-list li:hover{transform:translateX(6px);}
+.footer-part a{color:inherit;text-decoration:none;transition:color .25s;}
+.footer-part a:hover{color:var(--primary);}
+.footer-part .logoimg{width:32px;}
+.footer-part h4{font-size:1.15rem;}
+
+/* back to top */
+.to-top{
+	position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;border:0;z-index:1500;
+	background:var(--primary);color:#fff;font-size:20px;line-height:1;box-shadow:0 6px 16px rgba(0,0,0,.25);
+	opacity:0;transform:translateY(20px);pointer-events:none;transition:all .35s var(--ease);
+}
+.to-top.show{opacity:1;transform:none;pointer-events:auto;}
+.to-top:hover{background:#0056b3;}
+
+/* ---------- scroll reveal ---------- */
+.js .reveal{
+	opacity:0;
+
+	justify-content: center;
+	transition:opacity .8s var(--ease),transform .8s var(--ease);
+	transition-delay:var(--d,0ms);
+	will-change:opacity,transform;
+}
+.js .reveal[data-anim="up"]{transform:translateY(40px);}
+.js .reveal[data-anim="left"]{ justify-content:center; transform:translateX(-60px);}
+.js .reveal[data-anim="right"]{transform:translateX(60px);}
+.js .reveal[data-anim="zoom"]{transform:scale(.85);}
+.js .reveal[data-anim="flip"]{transform:perspective(700px) rotateY(-70deg) translateY(20px);}
+.js .reveal.in{opacity:1;transform:none;}
+/* stat cards and cards keep hover transform after reveal */
+.js .reveal.in.rect:hover,.js .reveal.in.symptom-card:hover{transition-delay:0ms;}
+
+/* floating decorative viruses */
+.float-virus{position:fixed;z-index:-1;opacity:.07;pointer-events:none;animation:floaty 14s ease-in-out infinite;}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-30px) rotate(180deg);}}
+
+@media (prefers-reduced-motion:reduce){
+	*,*::before,*::after{
+		animation:none !important;
+		transition:none !important;
+		scroll-behavior:auto !important;
+	}
+	.js .reveal{
+		opacity:1 !important;
+		transform:none !important;
+	}
+}
